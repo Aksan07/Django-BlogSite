@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% load static %}
+<!-- prettier-ignore -->
+{% block css_files %} 
+<link rel="stylesheet" href="{% static "BlogApp/all-posts.css" %}"/> 
+<link rel="stylesheet" href="{% static "BlogApp/posts.css" %}"/>
+
+{% endblock%}
+{% block page_title %} All Posts {% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section id="all-posts">
+  <h2>My Colllected Posts</h2>
+  <ul>
+    <!-- prettier-ignore -->
+    {% for post in all_posts %}
+    {% include "BlogApp/includes/post.html"%}
+    {% endfor %}
+  </ul>
+</section>
+
+{% endblock %}

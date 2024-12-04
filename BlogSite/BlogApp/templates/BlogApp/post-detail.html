@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% load static %}
+
+{% block css_files %} 
+
+<link rel="stylesheet" href="{% static "BlogApp/post-detail.css" %}"/> 
+
+{% endblock%}
+{% block page_title %} {{post.title}} {% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section id="summary">
+  <h2>{{post.title}}</h2>
+  <article>
+    <img src="{% static "BlogApp/images/"|add:post.image %}" alt="" />
+    <address>By Aksan</address>
+    <div>Last Upadated on <time>{{post.date|date:"d M Y"}}</time></div>
+  </article>
+</section>
+<main>{{post.content|linebreaks}}</main>
+
+{% endblock %}
